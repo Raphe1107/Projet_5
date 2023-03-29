@@ -16,12 +16,13 @@
         <?php include_once "oeuvres.php"; ?>
         <div id="liste-oeuvres">
             <?php 
-              
-                        
+              foreach ($oeuvres as $oeuvre) {
                 
 
 
 
+
+              }
 
             ?>
             
@@ -31,6 +32,7 @@
     </main>
 
     <?php include_once "footer.php" ?>
+    test git 
     
 </body>
 </html>
