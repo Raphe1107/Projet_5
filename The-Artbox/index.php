@@ -24,6 +24,7 @@
                 $description = $oeuvre['description'];
                 $id = $oeuvre['id'];
             ?>
+            
             <article class="oeuvre">
                 <a href="oeuvre.php">
                     <?php echo $image ?>

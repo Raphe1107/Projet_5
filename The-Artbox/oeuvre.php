@@ -15,21 +15,33 @@
 
     <main>
         <?php include_once "oeuvres.php"; ?>
-            <article id="detail-oeuvre">
-            <div id="img-oeuvre">
-            
-            </div>
-            <div id="contenu-oeuvre">
-            <h1></h1>
-            <p class="description"></p>
-            <p class="description-complete">
-            </div>
-            </article>
+    
+
+        
+        <article id="detail-oeuvre">
+            <?php 
+              foreach($oeuvres as $oeuvre);  {
+                $image = $oeuvre['image'];
+                $titre = $oeuvre['titre'];
+                $description = $oeuvre['description'];
+                $descriptioncomplete = $oeuvre['description complete'];
+                $id = $oeuvre['id'];
+            ?>
+                <div id="img-oeuvre">
+                    <?php echo $image ?>
+                </div>
+                <div id="contenu-oeuvre">
+                    <h1> <?php echo $titre ?> </h1>
+                    <p class="description"> <?php echo $description ?> </p>
+                    <p class="description-complete"> <?php echo $descriptioncomplete ?> </p>
+                </div>
+              <?php } ?>
+        </article>
 
 
 
 
-
+    
     </main>
 
     <?php include_once "footer.php"; ?>
