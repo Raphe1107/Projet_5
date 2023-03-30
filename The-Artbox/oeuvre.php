@@ -17,7 +17,7 @@
         <?php include_once "oeuvres.php"; ?>
             <article id="detail-oeuvre">
             <div id="img-oeuvre">
-            <img src="img/clark-van-der-beken.png" alt="Dodomu">
+            
             </div>
             <div id="contenu-oeuvre">
             <h1></h1>
