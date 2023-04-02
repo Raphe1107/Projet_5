@@ -15,18 +15,18 @@
 
     <main>
         <?php include_once "oeuvres.php"; ?>
-    
-
         
-        <article id="detail-oeuvre">
-            <?php 
-              foreach($oeuvres as $oeuvre);  {
+
+        <?php 
+              foreach($oeuvres as $oeuvre) 
+              if ($oeuvre['id'] === $_GET['id']){
                 $image = $oeuvre['image'];
                 $titre = $oeuvre['titre'];
                 $description = $oeuvre['description'];
-                $descriptioncomplete = $oeuvre['description complete'];
-                $id = $oeuvre['id'];
-            ?>
+                $descriptioncomplete = $oeuvre['description-complete'];
+        ?>
+        
+        <article id="detail-oeuvre">
                 <div id="img-oeuvre">
                     <?php echo $image ?>
                 </div>
@@ -36,9 +36,10 @@
                     <p class="description-complete"> <?php echo $descriptioncomplete ?> </p>
                 </div>
               <?php } ?>
+
         </article>
 
-
+        
 
 
     
@@ -48,3 +49,4 @@
 
 
 </body>
+</html>

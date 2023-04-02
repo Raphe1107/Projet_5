@@ -13,30 +13,28 @@
     <?php include_once "header.php"; ?>
 
     <main>
-        <?php include_once "oeuvres.php";?>
-    
-        
+        <?php include_once "oeuvres.php"?>
         <div id="liste-oeuvres">
             <?php 
-              foreach($oeuvres as $oeuvre);  {
+              foreach($oeuvres as $oeuvre) {
                 $image = $oeuvre['image'];
                 $titre = $oeuvre['titre'];
                 $description = $oeuvre['description'];
                 $id = $oeuvre['id'];
-            ?>
+             ?>
+    
+        
             
-            <article class="oeuvre">
-                <a href="oeuvre.php">
+           <article class="oeuvre">
+                <a href="oeuvre.php?id=<?php echo $id ?>">
                     <?php echo $image ?>
                     <h2><?php echo $titre ?></h2> 
                     <p class=description><?php echo $description ?></p>
                 </a>
             </article>
-            <?php
-              }
-
-            ?>
+            <?php } ?>
             
+        
             
         </div>
     </main>
