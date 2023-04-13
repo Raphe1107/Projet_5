@@ -17,36 +17,46 @@
         <?php include_once "oeuvres.php"; ?>
 
         <?php 
-            // On vérifie que l'ID est défini
+
+            // On vérifie que l'ID est défini dans l'URL
             if  (isset($_GET['id'])) {
+
+                // On verifie si L'ID est numérique ou est vide 
+                if (!is_numeric($_GET['id']) || empty($_GET['id'])) {
+                    die("L'ID spécifié n'est pas valide.");
+                }
 
                 // On recherche l'oeuvre avec l'ID correspondant   
                 foreach ($oeuvres as $oeuvre) {
-                    if ($oeuvre['id'] == $_GET['id']){
-                        $image = $oeuvre['image'];
-                        $titre = $oeuvre['titre'];
-                        $description = $oeuvre['description'];
-                        $descriptioncomplete = $oeuvre['description-complete'];
+                    $image = $oeuvre['image'];
+                    $titre = $oeuvre['titre'];
+                    $description = $oeuvre['description'];
+                    $descriptioncomplete = $oeuvre['description-complete'];
+                
+                    if ($oeuvre['id'] === $_GET['id']){ ?>
+                        <article id="detail-oeuvre">
+                            <div id="img-oeuvre">
+                                <?php echo $image ?>
+                            </div>
+                            <div id="contenu-oeuvre">
+                                <h1> <?php echo $titre ?> </h1>
+                                <p class="description"> <?php echo $description ?> </p>
+                                <p class="description-complete"> <?php echo $descriptioncomplete ?> </p>
+                            </div>
+                        </article> <?php
                         break;
                     }
+                } 
+                
+                // Si l'ID de l'URL ne correspond à aucune oeuvre on affiche un message
+                if ($oeuvre['id'] != $_GET['id']) {
+                    echo "L'oeuvre que vous cherchez n'existe pas.";              
                 }
-                // Si aucun ID ne correspond à une oeuvre, on affiche une erreur
-                if (($oeuvre['id'] != $_GET['id'])) {
-                    die("L'œuvre que vous cherchez n'existe pas.");
-                }
+
+            } else {
+                echo "ID non indiqué";
             }
-        ?>
-             
-        <article id="detail-oeuvre">
-            <div id="img-oeuvre">
-                <?php echo $image ?>
-            </div>
-            <div id="contenu-oeuvre">
-                <h1> <?php echo $titre ?> </h1>
-                <p class="description"> <?php echo $description ?> </p>
-                <p class="description-complete"> <?php echo $descriptioncomplete ?> </p>
-            </div>
-        </article>
+        ?>     
     </main>
 
     <?php include_once "footer.php"; ?> 
